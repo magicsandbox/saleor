@@ -255,7 +255,7 @@ class OrderLine(CountableDjangoObjectType):
         if image:
             url = get_product_image_thumbnail(image, size, method="thumbnail")
             alt = image.alt
-            return Image(alt=alt, url=info.context.build_absolute_uri(url))
+            return Image(alt=alt, url=url)
         return None
 
     @staticmethod

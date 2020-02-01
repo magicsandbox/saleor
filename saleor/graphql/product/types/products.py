@@ -540,7 +540,7 @@ class Product(CountableDjangoObjectType, MetadataObjectType):
         if image:
             url = get_product_image_thumbnail(image, size, method="thumbnail")
             alt = image.alt
-            return Image(alt=alt, url=info.context.build_absolute_uri(url))
+            return Image(alt=alt, url=url)
         return None
 
     @staticmethod
@@ -950,7 +950,7 @@ class ProductImage(CountableDjangoObjectType):
             url = get_thumbnail(root.image, size, method="thumbnail")
         else:
             url = root.image.url
-        return info.context.build_absolute_uri(url)
+        return url
 
     @staticmethod
     def __resolve_reference(root, _info, **_kwargs):

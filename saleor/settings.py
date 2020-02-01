@@ -53,9 +53,11 @@ if REDIS_URL:
     CACHE_URL = os.environ.setdefault("CACHE_URL", REDIS_URL)
 CACHES = {"default": django_cache_url.config()}
 
+DATABASE_URL = os.environ.get("DATABASE_URL") or "postgres://saleor:saleor@localhost:5432/saleor"
+
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgres://saleor:saleor@localhost:5432/saleor", conn_max_age=600
+        default=DATABASE_URL, conn_max_age=600
     )
 }
 

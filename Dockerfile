@@ -47,6 +47,7 @@ RUN apt-get update \
     libgdk-pixbuf2.0-0 \
     shared-mime-info \
     mime-support \
+    postgresql-client \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 

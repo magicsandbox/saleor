@@ -136,7 +136,6 @@ class Image(graphene.ObjectType):
             )
         else:
             url = image.url
-        url = info.context.build_absolute_uri(url)
         return Image(url, alt)
 
 
